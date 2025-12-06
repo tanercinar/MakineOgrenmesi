@@ -17,11 +17,14 @@ Bu işlemler sonucunda eğitime hazır hale getirilen verisetinin %80'i eğitim 
 
 # 2. Maaş Tahmin Modeli
 Filtrelenmiş ve kategorik dönüşümleri yapılmış veri üzerinde Random Forest, Linear Regression, Decision Tree ve Gradient Boosting yöntemleri denenmiş ve şu sonuçlar alınmıştır:
+
 <img width="515" height="66" alt="Screenshot 2025-12-06 at 21 28 22" src="https://github.com/user-attachments/assets/9db2345c-9713-4a6f-9c10-16775331d21f" />
+
 Görselde de görüldüğü gibi denenen metodların başarı oranları birbirine yakın olsa da az farkla Gradient Boosting yöntemi daha başarılı sonuç vermiştir. Veri üzerinde yapılan işlemlere rağmen modelin başarı düzeyi beklenenin altında kalmıştır ve bu verilerin maaş(salary_in_usd) tahmini yapmaya uygun olmadığı sonucuna varılmıştır.
 
 # 3. Deneyim Seviyesi Tahmin Modeli
 Maaş tahmininde istenilen sonucun elde edilememesi üzerine deneyim(experience_level) tahminine yönenilmiş ve Random Forest, Logistic Regression, Decision Tree ve Gradient Boosting yöntemleri kullanılarak yapılan eğitim ve tahmin testleri sonucunda görseldeki başarı oranları elde edilmiştir. En başarılı yöntem Random Forest yaklaşımı olmuştur
+
 <img width="401" height="79" alt="Screenshot 2025-12-06 at 21 34 54" src="https://github.com/user-attachments/assets/25d2c9ec-a5c4-42ee-a048-154d86c03e0d" />
 
 # 4. Sonuç ve Çıkarımlar
