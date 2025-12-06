@@ -37,7 +37,11 @@ Modelin sonucundan oluşturulan hit/miss grafiğinden de görülebileceği gibi 
 ### Genel Değerlendirme
 Oluşturulan modeller sonucunda başarılı bir maaş tahmini yapılamazken, başarılı sayılabilecek vir deneyim seviyesi tahmini yapılabilmektedir. Eldeki gürültülü veri ile, uygulanan filtreleme ve gruplandırma işlemlerinin de yardımı ile %78 gibi bir oranla tahmin yapan bir model eğitilmiş verinin yapısal özelliklerinin regresyon yerine sınıflandırma problemlerine daha uygun olduğu ortaya konmuştur.
 
+<img width="758" height="476" alt="Screenshot 2025-11-25 at 09 43 41" src="https://github.com/user-attachments/assets/27488e7f-4b98-4a79-912a-6536423380e0" />
+Random Forest Algoritmasıyla Eğitilen Modelin Filtresiz Hit/Miss Grafiği
+
 <img width="773" height="443" alt="Screenshot 2025-11-25 at 09 44 11" src="https://github.com/user-attachments/assets/57660de1-efc4-4709-977d-ca8fda49844c" />
+Random Forest Algoritmasıyla Eğitilen Modelin Filtreleme Sonrası Hit/Miss Grafiği
 
 <img width="642" height="515" alt="Screenshot 2025-11-25 at 09 44 05" src="https://github.com/user-attachments/assets/ff983cc3-5546-4c5e-b330-4aca5d7ad591" />
 
