@@ -49,7 +49,7 @@ Random Forest Algoritmasıyla Eğitilen Modelin Filtreleme Sonrası Hit/Miss Gra
 
 Filtrelenmiş Verinin Confusion Matrisi
 
-<img width="752" height="461" alt="Screenshot 2025-11-25 at 09 43 46" src="https://github.com/user-attachments/assets/0fa6bef9-d908-4b08-a5da-3dbbe7fa4462" />
+<img width="989" height="590" alt="output" src="https://github.com/user-attachments/assets/69a28562-babc-48eb-a7e3-31b49037bd24" />
 
 'experience_level' Hedef Sütununun Korelasyon Grafiği
 
