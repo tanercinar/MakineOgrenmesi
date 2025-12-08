@@ -2,7 +2,17 @@
 Bu proje makine öğrenmesi kullanarak belirli meslek gruplarındaki çalışanların verilerini kullanarak maaş ve deneyim seviyesi tahmini yapılmaya çalışılmaktadır. Regresyon ile maaş tahmini ve Random Forest ile deneyim seviyesi tahmini olarak iki farklı yaklaşım denenmiş ve verisetinin bu yaklaşımlara uygunluğu karşılaştırılmıştır.
 
 # 1. Veri Setinin Eğitime Hazırlanması
-Maaş tahmini için: 'work_year', 'experience_level', 'employment_type', 'job_title','remote_ratio', 'company_location', 'company_size' sütunları kullanılırken, deneyim seviyesi tahmini için ise 'work_year', 'employment_type', 'job_title','salary_in_usd','remote_ratio', 'company_location', 'company_size' sütunları kullanılmıştır.
+Maaş tahmini için: 'work_year', 'experience_level', 'employment_type', 'job_title','remote_ratio', 'company_location', 'company_size' sütunları kullanılırken, deneyim seviyesi tahmini için ise 'work_year', 'employment_type', 'job_title','salary_in_usd','remote_ratio', 'company_location', 'company_size' sütunları kullanılmıştır. Her iki tahmin için de 'salary', 'salary_currency' ve 'employee_residence' sütunları kullanılmamıştır. 'employee_residence' sütununun maaş ve deneyim seviyesi tahmini için, özellikle de verinin içinde benzer bir feature olup da daha büyük önem taşıyan bir 'company_location' sütunu da bulunduğundan dolayı gereksiz olmasından dolayı kullanılmamıştır. 'salary' ve 'salary_currency' sütunları ise 'salary_in_usd' sütununun bu iki sütunun birleşiminden oluşmasından dolayı sadece o feature veya target olarak alımıştır.
+
+# Verisetinin İlk 5 Satırı
+| | work_year | experience_level | employment_type | job_title | salary | salary_currency | salary_in_usd | employee_residence | remote_ratio | company_location | company_size |
+|---:|---:|:---|:---|:---|---:|:---|---:|:---|---:|:---|:---|
+| 0 | 2024 | SE | FT | AI Engineer | 202730 | USD | 202730 | US | 0 | US | M |
+| 1 | 2024 | SE | FT | AI Engineer | 92118 | USD | 92118 | US | 0 | US | M |
+| 2 | 2024 | SE | FT | Data Engineer | 130500 | USD | 130500 | US | 0 | US | M |
+| 3 | 2024 | SE | FT | Data Engineer | 96000 | USD | 96000 | US | 0 | US | M |
+| 4 | 2024 | SE | FT | Machine Learning Engineer | 190000 | USD | 190000 | US | 0 | US | M |
+
 
 ### Verinin filtrelenmesi
 Veride bulunan 'job_title' sütununda çok fazla sayıda az sayıda bulunan değer olduğu tespit edilmiş, öğrenememeye yol açmaması için önce bu satırların çıkarılmaları denenmiş ancak bunun da veri setinin büyük kısmının atılmasına, bunun sonucu olarak da zaten az değer bulunan bazı değerler için('experience_level' sütununun EN ve EX değerleri) öğrenememeye yol açtığı görülmüş ve bu doğrultuda az görülen unvanlar 'other' adı altında tek bir çatıda toplanmıştır.
@@ -36,23 +46,23 @@ Filtrelenmiş ve kategorik dönüşümleri yapılmış veri üzerinde 12 farklı
 # 3. Deneyim Seviyesi Tahmin Modeli
 Maaş tahmininde istenilen sonucun elde edilememesi üzerine deneyim(experience_level) tahminine yönenilmiş ve 15 farklı model denenmiştir, sonuçlar aşağıdaki tabloda bulunmaktadır. En başarılı sonuç %69.58 başarı oranı ile Gradient Boosting metoduyla yapılan modele aittir.
 
-| Model | Doğruluk Oranı (Accuracy) |
+| Model | Doğruluk (Accuracy) |
 | :--- | :--- |
-| **Gradient Boosting** | **0.69580** |
-| **Bagging Classifier** | **0.69066** |
-| **Random Forest** | **0.69066** |
-| Extra Trees | 0.68793 |
-| Extra Tree | 0.67705 |
-| Decision Tree | 0.67342 |
-| AdaBoost | 0.66223 |
-| K-Neighbors (KNN) | 0.65951 |
-| Ridge Classifier | 0.65588 |
 | Logistic Regression | 0.65558 |
-| MLP Classifier | 0.65558 |
-| Bernoulli NB | 0.64802 |
-| Nearest Centroid | 0.24826 |
+| Ridge Classifier | 0.65588 |
 | SGD Classifier | 0.07711 |
 | Passive Aggressive | 0.07711 |
+| K-Neighbors (KNN) | 0.66102 |
+| Nearest Centroid | 0.24826 |
+| Decision Tree | 0.67735 |
+| Extra Tree | 0.69005 |
+| AdaBoost | 0.65921 |
+| Bagging Classifier | 0.69701 |
+| Extra Trees | 0.70336 |
+| Bernoulli NB | 0.65891 |
+| MLP Classifier | 0.65558 |
+| Random Forest | 0.70275 |
+| Gradient Boosting | 0.69791 |
 
 # 4. Sonuç ve Çıkarımlar
 Yapılan işlemler sonucunda eldeki verisetinin sayısal değerlerden oluşan 'salary_in_usd' sütunundansa kategorik değerler içeren 'experience_level' sütununu tahmin etmeye daha elverişli olduğu görülmüştür. Regresyon ile maaş tahmin modeli düşük bir R skoru elde edip maaşın değerini verideki değer sütunlarla açıklamada yetersiz kalırken, deneyim seviyesi tahmini için Gradient Boosting algoritması ile oluşturulan model %69 gibi bir doğruluk oranı elde edip çok daha başarılı olmuştur.
@@ -64,19 +74,19 @@ Modelin sonucundan oluşturulan hit/miss grafiğinden de görülebileceği gibi 
 ### Genel Değerlendirme
 Oluşturulan modeller sonucunda başarılı bir maaş tahmini yapılamazken, başarılı sayılabilecek vir deneyim seviyesi tahmini yapılabilmektedir. Eldeki gürültülü veri ile, uygulanan filtreleme ve gruplandırma işlemlerinin de yardımı ile %78 gibi bir oranla tahmin yapan bir model eğitilmiş verinin yapısal özelliklerinin regresyon yerine sınıflandırma problemlerine daha uygun olduğu ortaya konmuştur.
 
-<img width="758" height="476" alt="Screenshot 2025-11-25 at 09 43 41" src="https://github.com/user-attachments/assets/27488e7f-4b98-4a79-912a-6536423380e0" />
 
-Gradient Boosting Algoritmasıyla Eğitilen Modelin Filtresiz Hit/Miss Grafiği
+<img width="1189" height="590" alt="image" src="https://github.com/user-attachments/assets/d89afc54-eba9-470f-88fc-39fff9863c2b" />
 
-<img width="773" height="443" alt="Screenshot 2025-11-25 at 09 44 11" src="https://github.com/user-attachments/assets/57660de1-efc4-4709-977d-ca8fda49844c" />
 
-Gradient Boosting Algoritmasıyla Eğitilen Modelin Filtreleme Sonrası Hit/Miss Grafiği
+Gradient Boosting Algoritmasıyla Eğitilen Modelin Hit/Miss Grafiği
 
-<img width="642" height="515" alt="Screenshot 2025-11-25 at 09 44 05" src="https://github.com/user-attachments/assets/ff983cc3-5546-4c5e-b330-4aca5d7ad591" />
+<img width="526" height="453" alt="image" src="https://github.com/user-attachments/assets/02ba1cf9-f606-4051-a811-181b378e19e6" />
+
 
 Filtrelenmiş Verinin Confusion Matrisi
 
-<img width="989" height="590" alt="output" src="https://github.com/user-attachments/assets/69a28562-babc-48eb-a7e3-31b49037bd24" />
+<img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/cd6d1f4d-38cf-4404-9353-4e0ea4c8e5c8" />
+
 
 'experience_level' Hedef Sütununun Korelasyon Grafiği
 
