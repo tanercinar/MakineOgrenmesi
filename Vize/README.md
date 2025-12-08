@@ -81,7 +81,8 @@ Oluşturulan modeller sonucunda başarılı bir maaş tahmini yapılamazken, ba�
 
 Random Forest Algoritmasıyla Eğitilen Modelin Hit/Miss Grafiği
 
-<img width="526" height="453" alt="image" src="https://github.com/user-attachments/assets/02ba1cf9-f606-4051-a811-181b378e19e6" />
+<img width="526" height="453" alt="image" src="https://github.com/user-attachments/assets/3b6ee8de-cde5-4032-a1a4-d9c0bae17b8b" />
+
 
 Modelin Karmaşıklık Matrisi
 
