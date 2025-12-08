@@ -4,7 +4,7 @@ Bu proje makine öğrenmesi kullanarak belirli meslek gruplarındaki çalışanl
 # 1. Veri Setinin Eğitime Hazırlanması
 Maaş tahmini için: 'work_year', 'experience_level', 'employment_type', 'job_title','remote_ratio', 'company_location', 'company_size' sütunları kullanılırken, deneyim seviyesi tahmini için ise 'work_year', 'employment_type', 'job_title','salary_in_usd','remote_ratio', 'company_location', 'company_size' sütunları kullanılmıştır. Her iki tahmin için de 'salary', 'salary_currency' ve 'employee_residence' sütunları kullanılmamıştır. 'employee_residence' sütununun maaş ve deneyim seviyesi tahmini için, özellikle de verinin içinde benzer bir feature olup da daha büyük önem taşıyan bir 'company_location' sütunu da bulunduğundan dolayı gereksiz olmasından dolayı kullanılmamıştır. 'salary' ve 'salary_currency' sütunları ise 'salary_in_usd' sütununun bu iki sütunun birleşiminden oluşmasından dolayı sadece o feature veya target olarak alımıştır.
 
-# Verisetinin İlk 5 Satırı
+### Verisetinin İlk 5 Satırı
 | | work_year | experience_level | employment_type | job_title | salary | salary_currency | salary_in_usd | employee_residence | remote_ratio | company_location | company_size |
 |---:|---:|:---|:---|:---|---:|:---|---:|:---|---:|:---|:---|
 | 0 | 2024 | SE | FT | AI Engineer | 202730 | USD | 202730 | US | 0 | US | M |
@@ -43,8 +43,11 @@ Filtrelenmiş ve kategorik dönüşümleri yapılmış veri üzerinde 12 farklı
 | K-Neighbors (KNN) | 0.2136 | $43,825 |
 | AdaBoost | 0.1572 | $47,738 |
 
+<img width="1000" height="600" alt="Figure_1" src="https://github.com/user-attachments/assets/2e1001d1-a95e-4a4b-886c-26e217803391" />
+
+
 # 3. Deneyim Seviyesi Tahmin Modeli
-Maaş tahmininde istenilen sonucun elde edilememesi üzerine deneyim(experience_level) tahminine yönenilmiş ve 15 farklı model denenmiştir, sonuçlar aşağıdaki tabloda bulunmaktadır. En başarılı sonuç %69.58 başarı oranı ile Gradient Boosting metoduyla yapılan modele aittir.
+Maaş tahmininde istenilen sonucun elde edilememesi üzerine deneyim(experience_level) tahminine yönenilmiş ve 14 farklı model denenmiştir, sonuçlar aşağıdaki tabloda bulunmaktadır. En başarılı sonuç %70.27 başarı oranı ile Random Forest metoduyla yapılan modele aittir.
 
 | Model | Doğruluk (Accuracy) |
 | :--- | :--- |
@@ -58,32 +61,29 @@ Maaş tahmininde istenilen sonucun elde edilememesi üzerine deneyim(experience_
 | Extra Tree | 0.69005 |
 | AdaBoost | 0.65921 |
 | Bagging Classifier | 0.69701 |
-| Extra Trees | 0.70336 |
 | Bernoulli NB | 0.65891 |
 | MLP Classifier | 0.65558 |
-| Random Forest | 0.70275 |
+| **Random Forest** | **0.70275** |
 | Gradient Boosting | 0.69791 |
 
 # 4. Sonuç ve Çıkarımlar
-Yapılan işlemler sonucunda eldeki verisetinin sayısal değerlerden oluşan 'salary_in_usd' sütunundansa kategorik değerler içeren 'experience_level' sütununu tahmin etmeye daha elverişli olduğu görülmüştür. Regresyon ile maaş tahmin modeli düşük bir R skoru elde edip maaşın değerini verideki değer sütunlarla açıklamada yetersiz kalırken, deneyim seviyesi tahmini için Gradient Boosting algoritması ile oluşturulan model %69 gibi bir doğruluk oranı elde edip çok daha başarılı olmuştur.
+Yapılan işlemler sonucunda eldeki verisetinin sayısal değerlerden oluşan 'salary_in_usd' sütunundansa kategorik değerler içeren 'experience_level' sütununu tahmin etmeye daha elverişli olduğu görülmüştür. Maaş tahmin modeli düşük bir R skoru elde edip maaşın değerini verideki değer sütunlarla açıklamada yetersiz kalırken, deneyim seviyesi tahmini için Random Forest algoritması ile oluşturulan model %70 gibi bir doğruluk oranı elde edip çok daha başarılı olmuştur.
 Aradaki bu büyük farkın temel nedeni maaşın, elimizdeki veride bulunmayan bir çok dış etkene de bağlı olmasıdır. Deneyim düzeyi ise en aşağıda eklenen tabloya da bakacak olursak maaş ile doğrudan orantılıdır ve yüksek korelasyon gösterir. Bu nedenle maaşın hedef değil de bir feature olarak kullanıldığı bir model çok daha tutarlı sonuçlar vermiştir.
 ### Algoritmaların Karşılaştırmaları
 Algoritmalar arasında yapılan karşılaştırmada hem regresyon hem de sınıflandırma görevlerinde ağaç tabanlı modellerin (Random Forest ve Gradient Boosting) doğrusal modellere (Linear ve Logistic Regression) kıyasla daha yüksek performans verdiği gözlemlenmiştir. Bu durum, veri setindeki özellikler ile hedef değişkenler arasındaki ilişkinin doğrusal olmaktan ziyade daha karmaşık ve hiyerarşik bir yapıda olduğunu kanıtlamaktadır. Dolayısıyla bu tip veri setlerinde karmaşık ilişkileri modelleyebilen algoritmaların tercih edilmesi gerekmektedir.
 ### Veri Dengesizliğinin Sonuca Etkisi
-Modelin sonucundan oluşturulan hit/miss grafiğinden de görülebileceği gibi veri dengesizliğinden dolayı model, az sayıda bulunan 'EX' ve 'EN' değerlerini tahmin ederken düşük başarı göstermiş, en yüksek sayıda verinin bulunduğu 'SE' değerini tahmin ederken ise en yüksek başarı oranını göstermiştir.
+Modelin sonucundan oluşturulan hit/miss grafiğinden de görülebileceği gibi veri dengesizliğinden dolayı model, az sayıda bulunan 'EX' ve 'EN' değerlerini tahmin ederken düşük başarı göstermiş, en yüksek sayıda verinin bulunduğu 'SE' değerini tahmin ederken ise en yüksek başarı oranını göstermiştir. Bunun önüne geçmek için en iyi başarı oranı veren Random Forest modeline class_weight='balanced' parametresi verilmiş ancak bunun başarı oranını düşürdüğü görülerek kullanılmamasına karar verilmiştir.
 ### Genel Değerlendirme
-Oluşturulan modeller sonucunda başarılı bir maaş tahmini yapılamazken, başarılı sayılabilecek vir deneyim seviyesi tahmini yapılabilmektedir. Eldeki gürültülü veri ile, uygulanan filtreleme ve gruplandırma işlemlerinin de yardımı ile %78 gibi bir oranla tahmin yapan bir model eğitilmiş verinin yapısal özelliklerinin regresyon yerine sınıflandırma problemlerine daha uygun olduğu ortaya konmuştur.
+Oluşturulan modeller sonucunda başarılı bir maaş tahmini yapılamazken, başarılı sayılabilecek bir deneyim seviyesi tahmini yapılabilmektedir. Eldeki gürültülü veri ile, uygulanan filtreleme ve gruplandırma işlemlerinin de yardımı ile %70 gibi bir oranla tahmin yapan bir model eğitilmiş verinin yapısal özelliklerinin regresyon yerine sınıflandırma problemlerine daha uygun olduğu ortaya konmuştur.
 
 
-<img width="1189" height="590" alt="image" src="https://github.com/user-attachments/assets/d89afc54-eba9-470f-88fc-39fff9863c2b" />
+<img width="1189" height="590" alt="image" src="https://github.com/user-attachments/assets/96d2cd20-5d16-40ec-a155-9cb1dc6bde2d" />
 
-
-Gradient Boosting Algoritmasıyla Eğitilen Modelin Hit/Miss Grafiği
+Random Forest Algoritmasıyla Eğitilen Modelin Hit/Miss Grafiği
 
 <img width="526" height="453" alt="image" src="https://github.com/user-attachments/assets/02ba1cf9-f606-4051-a811-181b378e19e6" />
 
-
-Filtrelenmiş Verinin Confusion Matrisi
+Modelin Karmaşıklık Matrisi
 
 <img width="989" height="590" alt="image" src="https://github.com/user-attachments/assets/cd6d1f4d-38cf-4404-9353-4e0ea4c8e5c8" />
 
