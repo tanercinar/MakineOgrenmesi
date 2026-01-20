@@ -28,6 +28,10 @@ Projede pivot tablo kullanarak çok fazla sayıda satırdan oluşan verisetindi 
 
 <img width="851" height="44" alt="Screenshot 2026-01-20 at 22 15 21" src="https://github.com/user-attachments/assets/c82322b9-37c2-4cd0-b962-092f22d045c7" />
 
+Her konteyner türünün genel ortalama doluluk değerini hesaplayarak model eğitiminde kullanmak için yeni özellikler oluşturuyorum.
+
+<img width="806" height="40" alt="Screenshot 2026-01-20 at 23 03 55" src="https://github.com/user-attachments/assets/843138eb-6d03-4613-af8e-5a0752feffd5" />
+
 Pivot tabolunun konsol çıktıları:
 
 <img width="413" height="453" alt="Screenshot 2026-01-20 at 22 34 15" src="https://github.com/user-attachments/assets/a1ff7e59-1623-47f1-91eb-48e0ede8e2c1" />
