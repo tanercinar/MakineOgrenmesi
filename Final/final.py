@@ -25,6 +25,12 @@ pivot_a_avg = df.groupby('Container Type')['FL_A'].mean().reset_index().rename(c
 df = df.merge(pivot_b_avg, on='Container Type', how='left')
 df = df.merge(pivot_a_avg, on='Container Type', how='left')
 
+#pivot tabloların konsola yazdırılmaı
+print(pivot_fl_b.round(2))
+print(pivot_fl_a.round(2))
+print(pivot_b_avg)
+print(pivot_a_avg)
+
 #kategorik verilerin encoder ile sayısallaştırılması
 le_container = LabelEncoder()
 le_fraction = LabelEncoder()
