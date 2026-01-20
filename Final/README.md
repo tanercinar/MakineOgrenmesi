@@ -10,7 +10,7 @@ Python ile Makine Öğrenmesi Uygulamaları
 
 # Akıllı Çöp Kutusu Doluluk Analizi ve Boşaltma Tahmini
 
-Bu projenin amacı Smart_Bin.csv verisetini kullanarak konteynerlerin boşaltılması gerekip gerekmediğini tahmin etmektir. Proje konteyner türü, atık kategorisi ve çeşitli doluluk sensörü verilerini analiz ederek Emptying veya Non Emptying  kararını otomatik olarak verebilmektedir. Projede 5 farklı makine öğrenmesi modeli kullanılmış ve sonuçları karşılaştırılmıştır.
+Bu projenin amacı Smart_Bin.csv verisetini kullanarak konteynerların boşaltılması gerekip gerekmediğini tahmin etmektir. Proje konteyner türü, atık kategorisi ve çeşitli doluluk sensörü verilerini analiz ederek Emptying veya Non Emptying  kararını otomatik olarak verebilmektedir. Projede 5 farklı makine öğrenmesi modeli kullanılmış ve sonuçları karşılaştırılmıştır.
 
 ## Kodun Çalışma Mantığı
 
@@ -33,6 +33,7 @@ Pivot tabolunun konsol çıktıları:
 <img width="413" height="453" alt="Screenshot 2026-01-20 at 22 34 15" src="https://github.com/user-attachments/assets/a1ff7e59-1623-47f1-91eb-48e0ede8e2c1" />
 <img width="280" height="426" alt="Screenshot 2026-01-20 at 22 34 27" src="https://github.com/user-attachments/assets/188867b0-6784-4bf8-aa1c-4a8c6f4d2171" />
 
+Pivot tablolarından elde edilen sonuçlara göre Diamond ve Accordion konteynerları daha yüksek doluluk oranlarına sahip olduğunu gördüm. FL_B ve FL_A değerşleri arasında ortalama 20-25 puanlık fark ,özellikle Diamond konteynerlarında bu farkın yaklaşık 26.5 puana ulaştığı sonucuna ulaştım. Recyclable atıkların genel olarak daha hızlı dolma eğiliminde olduğu tespit ettim. 
 
 ### 4. Veri Setindeki Gerekli Sütunların Sayısallaştırılması
 
