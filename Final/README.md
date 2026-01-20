@@ -24,7 +24,13 @@ Smart_Bin.csv dosyasını değişkene atadım ve "dropna()" metodu ile eksik de�
 
 ### 3. Pivot Tablosu
 
+Projede pivot tablo kullanarak çok fazla sayıda satırdan oluşan verisetindi daha kısa ve anlamlı bir parçaya dönüştürerek modelin hangi konteynır ve atık türü kombinasyonunun daha hızlı dolduğunu öğrenmesini ve daha iyi tahmin yapmasını sağladım.
+
 <img width="851" height="44" alt="Screenshot 2026-01-20 at 22 15 21" src="https://github.com/user-attachments/assets/c82322b9-37c2-4cd0-b962-092f22d045c7" />
+
+Pivot tabolunun konsol çıktıları:
+<img width="413" height="453" alt="Screenshot 2026-01-20 at 22 34 15" src="https://github.com/user-attachments/assets/a1ff7e59-1623-47f1-91eb-48e0ede8e2c1" />
+<img width="280" height="426" alt="Screenshot 2026-01-20 at 22 34 27" src="https://github.com/user-attachments/assets/188867b0-6784-4bf8-aa1c-4a8c6f4d2171" />
 
 
 ### 4. Veri Setindeki Gerekli Sütunların Sayısallaştırılması
@@ -81,7 +87,7 @@ Random Forest modeli %95.7 doğruluk oranıyla en başarılı sonucu vermiştir.
 <img width="4169" height="2068" alt="plot2" src="https://github.com/user-attachments/assets/93dd0a61-f464-4452-8c8c-b53b5664f0f1" />
 
 
-#### Grafik 3: Feature Importance (Özellik Önem Sıralaması)
+#### Grafik 3: Feature Importance Tablosu
 
 <img width="3569" height="2669" alt="plot3" src="https://github.com/user-attachments/assets/cfb215d8-400b-4dcb-8f8d-eb4684478dbd" />
 
