@@ -1,3 +1,11 @@
+# Sertifikalar
+
+Python Proramlama
+[Python_Programlama_Dili_Sertifika (1).pdf](https://github.com/user-attachments/files/24748790/Python_Programlama_Dili_Sertifika.1.pdf)
+
+Python ile Makine Öğrenmesi Uygulamaları
+[Python_ile_Makine_Öğrenmesi_Uygulamaları_Sertifika.pdf](https://github.com/user-attachments/files/24748789/Python_ile_Makine_Ogrenmesi_Uygulamalari_Sertifika.pdf)
+
 
 # Akıllı Çöp Kutusu Doluluk Analizi ve Boşaltma Tahmini
 
