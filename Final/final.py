@@ -13,7 +13,7 @@ import seaborn as sns
 #verinin yüklemesi değşkene aktarılması ve temizlenmesi
 df = pd.read_csv('Smart_Bin.csv').dropna()
 
-#ödevden istenilen pivotların oluşturulması
+#pivotların oluşturulması
 pivot_fl_b = pd.pivot_table(df, values='FL_B', index='Container Type', columns='Recyclable fraction', aggfunc='mean')
 pivot_fl_a = pd.pivot_table(df, values='FL_A', index='Container Type', columns='Recyclable fraction', aggfunc='mean')
 
