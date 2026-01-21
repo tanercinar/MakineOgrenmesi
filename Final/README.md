@@ -24,7 +24,7 @@ Smart_Bin.csv dosyasını değişkene atadım ve "dropna()" metodu ile eksik de�
 
 ### 3. Pivot Tablosu
 
-Projede pivot tablo kullanarak çok fazla sayıda satırdan oluşan verisetindi daha kısa ve anlamlı bir parçaya dönüştürerek modelin hangi konteynır ve atık türü kombinasyonunun daha hızlı dolduğunu öğrenmesini ve daha iyi tahmin yapmasını sağladım.
+Projede pivot tablo kullanarak çok fazla sayıda satırdan oluşan verisetini daha kısa ve anlamlı bir parçaya dönüştürerek modelin hangi konteyner ve atık türü kombinasyonunun daha hızlı dolduğunu öğrenmesini ve daha iyi tahmin yapmasını sağladım.
 
 <img width="851" height="44" alt="Screenshot 2026-01-20 at 22 15 21" src="https://github.com/user-attachments/assets/c82322b9-37c2-4cd0-b962-092f22d045c7" />
 
